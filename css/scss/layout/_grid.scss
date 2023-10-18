@@ -1,0 +1,74 @@
+$bp: (
+    "small": "540px",
+    "medium": "768px",
+    "large": "992px",
+    "giant": "1200px"
+);
+
+$small: map-get($bp, "small");
+$medium: map-get($bp, "medium");
+$large: map-get($bp, "large");
+$giant: map-get($bp, "giant");
+
+.row { 
+    margin: 0;
+    padding: 0;
+    max-width: 1800px;
+    background: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+    
+}
+
+.col{
+    box-sizing: border-box;
+    float: left;
+    max-width: 100%;
+    width: 100%;
+    flex-basis: 100%;
+}
+
+@mixin bp-small {
+  @media (min-width: #{$small}) { 
+      @content;  
+  }
+}
+
+@mixin bp-medium {
+  @media (min-width: #{$medium}) { 
+      @content;  
+  }
+}
+
+@mixin bp-large {
+  @media (min-width: #{$large}) { 
+      @content;  
+  }
+}
+
+@mixin bp-giant {
+  @media (min-width: #{$giant}) { 
+      @content;  
+  } 
+}
+
+@mixin bp-medium-max {
+  @media (max-width: #{$medium}) { 
+      @content;  
+  }
+}
+
+@each $breakpoint, $value in $bp{
+
+    @for $i from 1 through 12 {
+      .#{$breakpoint}-#{$i} { 
+        @media  (min-width: $value) {
+          width: calc(100% * (#{$i} / 12));
+          //alternative zu width
+          flex-basis: calc(100% * (#{$i} / 12));
+        }
+      }
+    }
+  }
