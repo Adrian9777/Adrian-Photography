@@ -9,6 +9,16 @@
   justify-content: center;
 }
 
+.rowFooter {
+  margin: 0;
+  padding: 0;
+  max-width: 1800px;
+  background: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
 .col {
   box-sizing: border-box;
   float: left;
@@ -363,24 +373,28 @@ body header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0px;
   height: auto;
   width: 100%;
   background: rgba(5, 5, 5, 0.8);
   z-index: 999;
 }
+body header nav {
+  margin-top: 0;
+}
 body header h1 {
-  font-family: "fuggels", Courier, monospace;
+  font-family: "sedgewich", fuggels, Courier, monospace;
   font-size: 2.3rem;
-  color: white;
+  color: rgb(255, 255, 255);
   align-items: center;
   padding: 0.2rem 0.3rem;
   margin: 0;
   z-index: 999;
   margin-left: 4%;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   body header h1 {
-    margin-left: 12%;
+    margin-left: 15%;
   }
 }
 body header .mobileNav {
@@ -420,9 +434,9 @@ body header .hamb {
   cursor: pointer;
   right: 4%;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   body header .hamb {
-    right: 12%;
+    right: 15%;
   }
 }
 body header .hamb .hamb-line {
@@ -475,10 +489,29 @@ body header .mobileNav {
   display: block;
 }
 
-@media (min-width: 768px) {
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .startGallery .startTitle {
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: white;
+  font-family: "sedgewich", fuggels, Courier, monospace;
+  animation-name: seitentitel;
+  animation-duration: 5s;
+  animation-delay: 0ms;
+  opacity: 0;
+}
+@media (min-width: 1200px) {
   main {
-    margin-left: 12%;
-    margin-right: 12%;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 }
 main img {
@@ -493,8 +526,8 @@ main .column1 {
   padding: 0.2rem;
   animation-name: einfliegenOben;
   animation-fill-mode: forwards;
-  animation-duration: 4s;
-  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-delay: 2s;
   opacity: 0;
 }
 main .column2 {
@@ -504,8 +537,8 @@ main .column2 {
   padding: 0.2rem;
   animation-name: einfliegenUnten;
   animation-fill-mode: forwards;
-  animation-duration: 4s;
-  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-delay: 2s;
   opacity: 0;
 }
 @media (max-width: 768px) {
@@ -513,15 +546,42 @@ main .column2 {
     display: none;
   }
 }
-@media (min-width: 768px) {
-  main .noRow {
+@media (min-width: 540px) {
+  main .maxSmartphone {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  main .maxLarge {
     display: none;
   }
 }
 
+footer {
+  background-color: rgb(28, 28, 28);
+  color: rgb(152, 152, 152);
+  height: auto;
+  margin-top: 4rem;
+}
+@media (min-width: 1200px) {
+  footer .margin {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+footer .margin h2 {
+  font-size: 1.3rem;
+  padding: 1rem 0 0 0.6rem;
+  margin: 0;
+}
+footer .margin p {
+  padding: 0.6rem;
+  margin: 0;
+}
+
 @keyframes einfliegenOben {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-150%);
     opacity: 0;
   }
   to {
@@ -531,12 +591,20 @@ main .column2 {
 }
 @keyframes einfliegenUnten {
   from {
-    transform: translateY(100%);
+    transform: translateY(150%);
     opacity: 0;
   }
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes seitentitel {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 @font-face {
@@ -547,5 +615,15 @@ main .column2 {
 @font-face {
   font-family: "ubuntu";
   src: url("fonts/Ubuntu-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "bla";
+  src: url("fonts/SedgwickAveDisplay-Regular.ttf");
+  font-weight: 400;
+}
+font-face {
+  font-family: "sedgewich";
+  src: url("fonts/SedgwickAveDisplay-Regular");
   font-weight: 400;
 }/*# sourceMappingURL=styles.css.map */
